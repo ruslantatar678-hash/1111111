@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: trading-ai
+    env: docker
+    plan: starter
+    dockerfilePath: Dockerfile
+    branch: main
+    envVars:
+      - key: MANUAL_TRIGGER_TOKEN
+        value: your-secret-token
+      - key: TELEGRAM_TOKEN
+        value: 1234567890:ABCDEF-your-bot-token
+      - key: API_URL
+        value: https://trading-ai.onrender.com
