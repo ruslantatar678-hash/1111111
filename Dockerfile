@@ -16,5 +16,5 @@ USER appuser
 
 EXPOSE 8000
 
-# Запускаем FastAPI и Telegram-бота
+# ✅ Запускаем FastAPI и Telegram-бота
 CMD ["bash", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 8000 & python app/telegram_bot.py"]
