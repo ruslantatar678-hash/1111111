@@ -13,4 +13,5 @@ USER appuser
 
 EXPOSE 8000
 
-CMD ["bash", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 8000 & python -m app.telegram_bot"]
+CMD ["bash", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 8000 & python app/telegram_bot.py"]
+
