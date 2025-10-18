@@ -5,7 +5,8 @@ import os
 import threading
 import time
 
-from app.ai_logic import analyze_pair
+from ai_logic import analyze_pair
+
 
 app = FastAPI(title="Trading AI", description="AI-анализ валют и крипто. Сигналы по кнопке.", version="1.0")
 
