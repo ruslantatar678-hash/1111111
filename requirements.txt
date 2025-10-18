@@ -5,6 +5,3 @@ uvicorn
 requests
 pandas
 numpy
-git add requirements.txt
-git commit -m "fix: pin aiogram 2.25.1 for compatibility"
-git push
