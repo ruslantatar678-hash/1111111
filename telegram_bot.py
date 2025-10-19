@@ -1,22 +1,23 @@
 import os
 from aiogram import Bot, Dispatcher, types
-from aiogram.utils.executor import start_webhook
+from aiogram.utils import executor
 from fastapi import FastAPI
+import logging
 
-TOKEN = os.getenv("TELEGRAM_TOKEN")
-API_URL = os.getenv("API_URL", "https://ruslantatar678-hash.onrender.com")
+# ✅ Настройки
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+API_URL = os.getenv("API_URL", "https://ruslantatar678-hash.onrender.com")  # <-- добавь сюда свой Render URL
 
-# Удаляем лишний слэш на конце, если вдруг есть
-if API_URL.endswith("/"):
-    API_URL = API_URL[:-1]
+# Если API_URL не найден — логируем предупреждение
+if not API_URL or "http" not in API_URL:
+    logging.warning(f"⚠️ API_URL не задан! Использую пример: https://ruslantatar678-hash.onrender.com")
+    API_URL = "https://ruslantatar678-hash.onrender.com"
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot)
 
-WEBHOOK_PATH = f"/webhook/{TOKEN}"
-WEBHOOK_URL = f"{API_URL}{WEBHOOK_PATH}"
+app = FastAPI(title="Trading AI", description="AI-анализ валют и крипто. Сигналы по кнопке.", version="1.0")
 
-app = FastAPI()
 
 @app.on_event("startup")
 async def on_startup():
