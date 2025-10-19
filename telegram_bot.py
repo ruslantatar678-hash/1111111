@@ -5,7 +5,7 @@ from fastapi import FastAPI
 import logging
 
 # ✅ Настройки
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = os.getenv("8322917513:AAFL0p7FNkf-2cnVVndRbQZkYSvJ1Al_mBc")
 API_URL = os.getenv("API_URL", "https://ruslantatar678-hash.onrender.com")  # <-- добавь сюда свой Render URL
 
 # Если API_URL не найден — логируем предупреждение
